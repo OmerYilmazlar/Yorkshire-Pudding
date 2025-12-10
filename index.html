@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yorkshire Pudding – Bowl & Wrap | Canada Water, London</title>
+  <style>
+    :root {
+      --green: #555f32; /* close to your banner colour */
+      --green-dark: #3e4625;
+      --cream: #f5f1e6;
+      --accent: #f3b547;
+      --text-main: #ffffff;
+      --text-dark: #222222;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f3f3f3;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header.hero {
+      background: var(--green);
+      color: var(--text-main);
+      padding: 2.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      background-image: 
+        linear-gradient(rgba(85, 95, 50, 0.75), rgba(85, 95, 50, 0.75)),
+        url('images/Gazzibo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    header.hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+
+    header.hero h2 {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    header.hero p {
+      margin-bottom: 0.6rem;
+      font-size: 0.98rem;
+    }
+
+    .tagline {
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 0.25rem 0.9rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .halal-badge {
+      border-radius: 999px;
+      padding: 0.4rem 1.1rem;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.8);
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons a {
+      text-decoration: none;
+      padding: 0.7rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .hero-buttons a.primary {
+      background: var(--accent);
+      color: #3a2b10;
+      border-color: transparent;
+    }
+
+    .hero-buttons a.secondary {
+      background: transparent;
+      color: #fff;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: -1.4rem auto 2.5rem;
+      padding: 0 1rem 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.1rem;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.2rem;
+      color: var(--green-dark);
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #777;
+      margin-bottom: 0.9rem;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+    }
+
+    /* MENU */
+    .menu-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .menu-item {
+      background: var(--cream);
+      border-radius: 0.9rem;
+      padding: 1.1rem 1.1rem 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #555;
+      margin-bottom: 0.3rem;
+    }
+
+    .menu-item h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.3rem;
+      color: var(--green-dark);
+    }
+
+    .menu-price {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #3b3723;
+    }
+
+    .menu-list {
+      margin-left: 1.1rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .menu-list li + li {
+      margin-top: 0.15rem;
+    }
+
+    .addon-title {
+      margin-top: 0.6rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .menu-note {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-grid figure {
+      border-radius: 0.9rem;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .gallery-grid img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-grid figcaption {
+      padding: 0.45rem 0.75rem 0.65rem;
+      font-size: 0.82rem;
+      color: #f7f7f7;
+      background: rgba(0,0,0,0.64);
+    }
+
+    /* Location */
+    .location-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.3rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 750px) {
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .location-box {
+      background: var(--cream);
+      border-radius: 0.9rem;
+      padding: 1rem 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    .location-box h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--green-dark);
+    }
+
+    .location-highlight {
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .location-note {
+      margin-top: 0.4rem;
+      font-size: 0.86rem;
+      color: #666;
+    }
+
+    .hours-list {
+      list-style: none;
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .hours-list li + li {
+      margin-top: 0.1rem;
+    }
+
+    .map-placeholder {
+      border-radius: 0.9rem;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.03),
+        rgba(0,0,0,0.03) 10px,
+        rgba(0,0,0,0.06) 10px,
+        rgba(0,0,0,0.06) 20px
+      );
+      padding: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.3rem 1rem 1.7rem;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    footer a {
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Yorkshire Pudding</h1>
+    <h2>Bowl &amp; Wrap</h2>
+    <p class="tagline">Proper comfort food, street-food style – freshly cooked and fully Halal.</p>
+    <p>Serving at <strong>Canada Water, London</strong></p>
+
+    <div class="badge-row">
+      <span class="halal-badge">Halal</span>
+      <span class="badge">Slow-cooked beef / chicken / sausage</span>
+      <span class="badge">Giant 7&quot; Yorkshire puddings</span>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="#menu" class="primary">View Menu</a>
+      <a href="#find-us" class="secondary">Find Us</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section class="card" id="about">
+      <p class="section-subtitle">About</p>
+      <h2 class="section-title">Giant Yorkshire Puddings, Filled to the Brim</h2>
+      <p class="intro-text">
+        We serve classic British roast flavours in a fun, handheld way: crisp <strong>Yorkshire puddings</strong> turned into
+        hearty <strong>bowls</strong> and <strong>wraps</strong>, loaded with slow-cooked meat, roast potatoes, veggies and proper sauces.
+        Everything is prepared with care, using <strong>Halal</strong> ingredients.
+      </p>
+    </section>
+
+    <!-- MENU -->
+    <section class="card" id="menu">
+      <p class="section-subtitle">Menu</p>
+      <h2 class="section-title">Yorkshire Pudding Bowls &amp; Wraps</h2>
+      <p class="intro-text">All mains are made with our <strong>giant 7&quot; Yorkshire pudding</strong> and your choice of filling.</p>
+
+      <div class="menu-layout" style="grid-template-columns: 1fr; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <article class="menu-item">
+          <div class="menu-tag">Mains</div>
+          <h3>Yorkshire Pudding Bowl or Wrap</h3>
+          <p class="menu-price">£11.00 – all included</p>
+          
+          <p style="margin-bottom: 0.5rem; font-weight: 600;">Choose your style:</p>
+          <ul class="menu-list" style="margin-bottom: 0.7rem;">
+            <li><strong>Bowl</strong> – Perfect for when you want the full roast experience in a warm, edible bowl</li>
+            <li><strong>Wrap</strong> – All the flavours of a Sunday roast, wrapped up for eating on the go</li>
+          </ul>
+
+          <p style="margin-bottom: 0.5rem; font-weight: 600;">What's included:</p>
+          <ul class="menu-list">
+            <li>Choice of meat: <strong>Beef / Chicken / Sausage</strong></li>
+            <li>Stuffing</li>
+            <li>Crispy roast potatoes</li>
+            <li>Veggie mix (peas, carrots, beans)</li>
+            <li>Gravy sauce</li>
+            <li>Horseradish sauce</li>
+            <li>Mint sauce</li>
+            <li>Fresh red onion</li>
+          </ul>
+          
+          <p class="addon-title">Add-ons</p>
+          <ul class="menu-list">
+            <li><strong>Add molten cheese</strong> – £1.00</li>
+            <li><strong>Add Turkish pepperoni (sucuk)</strong> – £2.00</li>
+            <li><strong>Extra portion of beef / chicken / sausage</strong> – £2.00</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="card" id="gallery">
+      <p class="section-subtitle">Gallery</p>
+      <h2 class="section-title">Have a Look</h2>
+      <p class="intro-text">A few photos of our Yorkshire Pudding bowls and wraps.</p>
+
+      <div class="gallery-grid">
+        <figure>
+         
+          <img src="images/Bowl-main.jpg" alt="Yorkshire pudding bowl filled with beef, peas, carrots and potatoes" />
+          <figcaption>Yorkshire Pudding Bowl – loaded with beef, roast potatoes &amp; veggies.</figcaption>
+        </figure>
+        <figure>
+          
+          <img src="images/Wrap-main.jpg" alt="Yorkshire pudding wrap filled with roast ingredients" />
+          <figcaption>Yorkshire Pudding Wrap – all the roast flavours in a handheld wrap.</figcaption>
+        </figure>
+        <figure>
+          
+          <img src="images/Bowl-1.jpg" alt="Banner showing Yorkshire pudding bowl and wrap" />
+          <figcaption>Our Bowl &amp; Wrap banner for the stall.</figcaption>
+        </figure>
+        <figure>
+          
+          <img src="images/Wrap-1.jpg" alt="Menu graphic for Yorkshire pudding" />
+          <figcaption>Menu graphic with ingredients &amp; molten cheese option.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="card" id="find-us">
+      <p class="section-subtitle">Find Us</p>
+      <h2 class="section-title">Where to Get Your Yorkshire Pudding</h2>
+
+      <div class="location-grid">
+        <div class="location-box">
+          <h3>Location</h3>
+          <p class="location-highlight">Canada Water, London</p>
+          <p>
+            You can find us at our Yorkshire Pudding street-food stall in the Canada Water area. Come by for a freshly
+            cooked bowl or wrap, hot gravy and all the trimmings.
+          </p>
+          <p class="location-note">
+            Check our social media for market days, exact pitch location and any special flavours.
+          </p>
+          <h3 style="margin-top:0.9rem;">Typical Hours</h3>
+          <ul class="hours-list">
+            <li>Weekends – late morning to early evening</li>
+            <li>Bank holidays &amp; special events – times may vary</li>
+          </ul>
+        </div>
+
+        <div class="map-placeholder" style="padding: 0; background: none;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.3837171!2d-0.0493!3d51.4952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI5JzQyLjciTiAwwrAwMic1Ny41Ilc!5e0!3m2!1sen!2suk!4v1234567890"
+            width="100%" 
+            height="300" 
+            style="border:0; border-radius: 0.9rem;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Yorkshire Pudding Bowl &amp; Wrap – Canada Water, London. All rights reserved.</p>
+    <p>Made with love, gravy and giant Yorkshire puddings.</p>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
